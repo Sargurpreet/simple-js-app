@@ -23,3 +23,11 @@ let pokemonList = [
     type: ['grass' , 'poison']
   }
 ];
+
+for (let i=0; i < pokemonList.length; i++) {
+  if (pokemonList[i].height >= 1.0) {
+  document.write('<p>' + pokemonList[i].name + ' (Height: ' + (pokemonList[i].height) +')' + ' - Wow, that is big!' );
+  } else {
+    document.write('<p>' + pokemonList[i].name + ' (Height: ' + (pokemonList[i].height) +')');
+  }
+}
