@@ -25,9 +25,11 @@ let pokemonList = [
 ];
 
 for (let i=0; i < pokemonList.length; i++) {
+  const pokemon = pokemonList[i];
+  const pokemonSentence = pokemon.name + '(Height: ' + pokemon.height +')';
   if (pokemonList[i].height >= 1.0) {
-  document.write('<p>' + pokemonList[i].name + ' (Height: ' + (pokemonList[i].height) +')' + ' - Wow, that is big!' );
+  document.write('<p>' + pokemonSentence + ' - Wow, that is big!' + '</p>');
   } else {
-    document.write('<p>' + pokemonList[i].name + ' (Height: ' + (pokemonList[i].height) +')');
+    document.write('<p>' + pokemonSentence + '</p>');
   }
 }
