@@ -61,6 +61,7 @@ let pokemonRepository = (function () {
     },
     add: function (pokemon) {
       pokemonList.push(pokemon);
+      return {};
     }
 
   }
@@ -83,6 +84,20 @@ function loopFunction (list) {
 
 pokemonRepository.getAll().forEach(loopFunction);
 
+//Add a new pokemon´s data 
+
+pokemonRepository.add(
+  {
+    name: 'Kakuna',
+    height: 0.6, 
+    type: ['bug' , 'poison']
+  }
+     
+)
+
+pokemonRepository.getAll().forEach(loopFunction);
+
+pokemonRepository.getAll().forEach().pokemonList.name.filter( name => Bulbasaur);
 
 /*
 pokemonList.forEach(loopFunction);
