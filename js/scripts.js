@@ -1,4 +1,4 @@
-let pokemonList = [
+/*let pokemonList = [
   {
     name: 'Charizard',
     height: 1.7, 
@@ -24,6 +24,48 @@ let pokemonList = [
   }
 ];
 
+*/
+
+//Using IIFE to make variables for local use
+let pokemonRepository = (function () {
+
+  let pokemonList = [
+    {
+      name: 'Charizard',
+      height: 1.7, 
+      type: ['fire' , 'flying']
+    },
+  
+    {
+      name: 'Pikachu',
+      height: 0.4,
+      type: ['Electric']
+    },
+  
+    {
+      name: 'Pidgeot',
+      height: 1.5,
+      type: ['flying' , 'Normal']
+    },
+  
+    {
+      name: 'Bulbasaur',
+      height: 0.7,
+      type: ['grass' , 'poison']
+    }
+  ];
+
+  return{
+    getAll: function() {
+      return pokemonList;
+    },
+    add: function (pokemon) {
+      pokemonList.push(pokemon);
+    }
+
+  }
+}) ();
+
 /*Creating a loop function that can take a array 
 and print some data of that array(name and height), 
 also tells if it`s big.
@@ -39,10 +81,12 @@ function loopFunction (list) {
     }
 }
 
-pokemonList.forEach(loopFunction);
+pokemonRepository.getAll().forEach(loopFunction);
 
 
 /*
+pokemonList.forEach(loopFunction);
+
 for (let i=0; i < pokemonList.length; i++) {
   const pokemon = pokemonList[i];
   const pokemonSentence = pokemon.name + '(Height: ' + pokemon.height +')';
