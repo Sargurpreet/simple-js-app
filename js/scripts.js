@@ -71,11 +71,11 @@ let pokemonRepository = (function () {
 and print some data of that array(name and height), 
 also tells if it`s big.
 */
-function loopFunction (list) {
+function loopFunction (pokemon) {
 
-  const Sentence = list.name + '(Height: ' + list.height +')';
+  const Sentence = pokemon.name + '(Height: ' + pokemon.height +')';
 
-  if (list.height >= 1.0) {
+  if (pokemon.height >= 1.0) {
     document.write('<p>' + Sentence + ' - Wow, that is big!' + '</p>');
     } else {
       document.write('<p>' + Sentence + '</p>');
@@ -97,7 +97,7 @@ pokemonRepository.add(
 
 pokemonRepository.getAll().forEach(loopFunction);
 
-pokemonRepository.getAll().forEach().pokemonList.name.filter( name => Bulbasaur);
+pokemonRepository.getAll().filter(pokemon => pokemon.name === 'Bulbasaur').forEach(loopFunction);
 
 /*
 pokemonList.forEach(loopFunction);
