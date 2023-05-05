@@ -54,23 +54,54 @@ let pokemonRepository = (function () {
       type: ['grass' , 'poison']
     }
   ];
-
-  return{
-    getAll: function() {
-      return pokemonList;
-    },
-    add: function (pokemon) {
+    
+    function add (pokemon) {
       pokemonList.push(pokemon);
-      return {};
     }
 
-  }
+    function getAll() {
+      return pokemonList;
+    }
+
+    
+    function addListItem(pokemon) {
+      let pokemonList = document.querySelector(".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("pokemon-list");
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
+      
+      button.addEventListener('click', function(event) {
+        showDetails(pokemon);
+      })
+    }
+      
+    function showDetails (pokemon){
+        console.log(pokemon);
+    }
+    
+
+
+    return{
+      add: add,
+      getAll: getAll,
+      addListItem: addListItem,
+      showDetails: showDetails
+    };
 }) ();
+
+
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
 
 /*Creating a loop function that can take a array 
 and print some data of that array(name and height), 
 also tells if it`s big.
-*/
+
 function loopFunction (pokemon) {
 
   const Sentence = pokemon.name + '(Height: ' + pokemon.height +')';
@@ -81,11 +112,11 @@ function loopFunction (pokemon) {
       document.write('<p>' + Sentence + '</p>');
     }
 }
+*/
 
-pokemonRepository.getAll().forEach(loopFunction);
 
 //Add a new pokemon´s data 
-
+/*
 pokemonRepository.add(
   {
     name: 'Kakuna',
@@ -94,12 +125,14 @@ pokemonRepository.add(
   }
      
 )
+*/
 
-pokemonRepository.getAll().forEach(loopFunction);
 
-pokemonRepository.getAll().filter(pokemon => pokemon.name === 'Bulbasaur').forEach(loopFunction);
 
 /*
+pokemonRepository.getAll().filter(pokemon => pokemon.name === 'Bulbasaur').forEach(loopFunction);
+
+
 pokemonList.forEach(loopFunction);
 
 for (let i=0; i < pokemonList.length; i++) {
