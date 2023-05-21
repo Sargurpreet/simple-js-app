@@ -109,6 +109,22 @@ function showDetails(pokemon){
 
   };
 
+
+  let searchButton = $('.btn-warning');
+  searchButton.on('click', function() {
+    let pokedexList = $('.pokemon-list');
+      pokedexList.empty();
+      getPokemonListByName($('.form-control').val()).forEach(function(pokemon) {
+        addListItem(pokemon);
+      });
+  })
+
+  function getPokemonListByName(input) {
+    return pokemonList.filter(function(pokemon){
+      return pokemon.name.toLowerCase().includes(input.toLowerCase());
+    });
+  }
+
 return {
   add: add,
   getAll: getAll,
