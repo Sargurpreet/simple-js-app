@@ -18,17 +18,15 @@ let pokemonRepository = (function () {
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
     listItem.classList.add("list-group-item");
+
+
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add('pokemon-item');
-    button.classList.add('list-group-item');
-    button.classList.add('img');
-
-
-
-    button.classList.add("btn");
+    button.classList.add('btn');
     button.classList.add("btn-warning");
     button.classList.add("col");
+    
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#pokeModal");
 
